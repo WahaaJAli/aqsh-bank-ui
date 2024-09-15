@@ -2,9 +2,9 @@
 @use "sass:map";
 
 // @import '../components/Footer/Footer.scss';
+@import 'mixin';
 @import 'function';
 @import 'keyframe';
-@import 'mixin';
 @import 'variable';
 @import 'typography';
 
@@ -459,8 +459,8 @@ a {
   }
 
   .link-text {
-    @include link($color-primary-bright);
     font-size: 1.4vw;
+    @include link($color-primary-bright);
   }
 
   &:hover {
@@ -623,10 +623,10 @@ ul {
   margin-top: 1rem;
 
   .link-text {
-    @include link($color-heading);
     font-size: 2rem;
     margin-top: 0;
     margin-right: 2rem;
+    @include link($color-heading);
   }
 
   .icon-tnsa {

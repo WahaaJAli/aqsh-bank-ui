@@ -58,13 +58,15 @@
     width: 0;
   }
 
-  &:hover::before {
-    width: 100%;
-    transition: width $timing;
-  }
-
-  &:hover::after {
-    width: 100%;
-    transition-delay: $timing;
+  &:hover {
+    &::before {
+      width: 100%;
+      transition: width $timing;
+    }
+  
+    &::after {
+      width: 100%;
+      transition-delay: $timing;
+    }
   }
 }
