@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react"
 import BankAdd from "./BankAdd"
 import BankList from "./BankList"
-import BankService, { IBank } from "../../../services/BankService"
-import Prompt from "../../Prompt/Prompt"
-import useBanks from "../../../hooks/useBanks"
+import BankService, { IBank } from "../../services/BankService"
+import Prompt from "../Prompt/Prompt"
+import useBanks from "../../hooks/useBanks"
+
 
 const Bank = () => {
 	useEffect( () => { document.title = "Premier Islamic Banking" }, [])

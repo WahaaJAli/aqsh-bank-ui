@@ -1,5 +1,5 @@
+import { Link } from "../Link/Link"
 import { ReactNode } from "react"
-import { Link } from "../../Link/Link"
 
 interface HeaderSectionProps {
     children?: ReactNode

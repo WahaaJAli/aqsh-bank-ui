@@ -1,5 +1,5 @@
-import Bank from "../components/Bank"
-import { BankHeader } from "../components/BankHeader"
+import Bank from "../IslamicBank/Bank"
+import { BankHeader } from "../IslamicBank/BankHeader"
 
 const IslamicBank = (): JSX.Element => {
     return (

@@ -1,10 +1,10 @@
 import { FieldValues, useForm } from "react-hook-form"
-import { IBank } from "../../../services/BankService"
+import { IBank } from "../../services/BankService"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
-import Button from "../../Button/Button"
-import Error from "../../Error/Error"
-import BankSchema from "../../../schemas/Bank"
+import BankSchema from "../../schemas/Bank"
+import Button from "../Button/Button"
+import Error from "../Error/Error"
 
 interface BankAddProps {
     error?: string

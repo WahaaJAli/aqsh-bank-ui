@@ -1,9 +1,9 @@
+import { IBank } from '../../services/BankService'
 import { useState } from 'react'
-import { IBank } from '../../../services/BankService'
-import Button from '../../Button/Button'
-import Error from '../../Error/Error'
-import Prompt from '../../Prompt/Prompt'
-import Icons from '../icons/icons'
+import Button from '../Button/Button'
+import Error from '../Error/Error'
+import Icons from '../../icons/Icons'
+import Prompt from '../Prompt/Prompt'
 
 interface BankListProps {
     error?: string
