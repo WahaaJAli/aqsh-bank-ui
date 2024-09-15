@@ -1,0 +1,153 @@
+/* VARIABLES */
+$font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+
+/* FILTERS */
+$filter-black: brightness(0);
+$filter-white: brightness(0) invert(1);
+$filter-red: invert(16%) sepia(87%) saturate(6986%) hue-rotate(2deg) brightness(98%) contrast(118%);;
+$filter-primary: invert(13%) sepia(99%) saturate(3221%) hue-rotate(185deg) brightness(93%) contrast(102%);
+$filter-secondary: invert(35%) sepia(49%) saturate(5856%) hue-rotate(172deg) brightness(91%) contrast(84%);
+
+/* COLOR PALETTE */
+$color-primary: #004F76;
+$color-secondary: #14829F;
+$color-accent-primary: #D8E3EC;
+$color-accent-secondary: #9DBED1;
+$color-primary-bright: #04e6fc;
+
+$color-heading: #1b0760;
+$color-body: #1b0760;
+$color-body-light: #34256b;
+
+$gradient-primary: linear-gradient(90deg,#00c5d7 0%,#4248b4 50%,#ca00bd 100%);
+$gradient-secondary: linear-gradient(90deg,#7250d5 0,#aa47a5 50%,#f43a67 100%);
+$gradient-tertiary: linear-gradient(90deg,#04e6fc 0,#343bb7 50%,#ca00bd 100%);
+
+// Theme2
+// $color-primary: #053D57;
+// $color-secondary: #006884;
+// $color-accent-primary: #F2F1EF;
+// $color-accent-secondary: #97BCC7;
+
+// Theme3
+// $color-primary: #15998E;
+// $color-secondary: #45B08C;
+// $color-accent-primary: #C0DCEC;
+// $color-accent-secondary: #48BCD1;
+
+// $color-primary: #008080;
+// $color-secondary: lightsalmon;
+// $color-accent: lightgray;
+
+$black-copyright: #0f0a04;
+$black-footer: #120d07;
+$black-hex: #000;
+$black-rgb: 0,0,0;
+$black: black;
+$blue-leaflet: #75cff0;
+$brown-callout: #a0773c;
+$brown-copyright: #2e200c;
+$brown-footer: #402d13;
+$brown-ornament-dark: #524025;
+$brown-ornament-light: #9d5f49;
+$brown-primary: #63451a;
+$brown-secondary: #e7e3dc;
+$card-primary: #173045;
+$card-secondary: #094777;
+$cyan10: #e5f4ff;
+$cyan20: #c5e6ff;
+$cyan30: #85caff;
+$cyan40: #3ca4f3;
+$cyan50: #0d80d8;
+$cyan60: #0c65a9;
+$cyan70: #145586;
+$cyan80: #124164;
+$cyan90: #113049;
+$gray-primary: #4e4e4e;
+$gray-quaternary: #f9f9f9;
+$gray-secondary: #ededed;
+$gray-sixfold: #f7f5f9;
+$gray-tertiary: #e6e3dd;
+$green-verified: #00c48c;
+$green10: #e8ffeb;
+$green20: #afffc7;
+$green30: #76f5a9;
+$green40: #25d284;
+$green50: #00b065;
+$green60: #009656;
+$green70: #027744;
+$green80: #04502f;
+$green90: #04331f;
+$grey10: #f9fafa;
+$grey20: #ecf0f3;
+$grey30: #e0e0e0;
+$grey40: #a5b2bd;
+$grey50: #748494;
+$grey60: #586978;
+$grey70: #364b5b;
+$grey80: #1f2f3c;
+$grey90: #11181d;
+$hover-transition: 0.15s all ease!important;
+$maize-callout: #fbf7e5;
+$maize: #f5edc6;
+$navy10: #ebf6ff;
+$navy20: #d2e7f7;
+$navy30: #aed0eb;
+$navy40: #76a1c2;
+$navy50: #416f91;
+$navy60: #274b66;
+$navy70: #173b56;
+$navy75: #112e44;
+$navy80: #0f2535;
+$navy90: #07121a;
+$orange-primary-hex: #ff8f4d;
+$orange-primary-rgb: 255,143,77;
+$orange-secondary-hex: #ffa26b;
+$orange-secondary-rgb: 255,162,107;
+$orange10: #fefae9;
+$orange20: #fdf0c5;
+$orange30: #ffde9c;
+$orange40: #ffb867;
+$orange50: #fc8431;
+$orange60: #ef6f1f;
+$orange70: #cd5222;
+$orange80: #a23623;
+$orange90: #6c1f10;
+$pink-primary: #ef4b78;
+$pink-secondary: #dd4561;
+$pink-tertiary: #fde4eb;
+$purple10: #f6f0fd;
+$purple20: #eadefc;
+$purple30: #d4bdf7;
+$purple40: #c39af8;
+$purple50: #9c6ade;
+$purple60: #7a41c5;
+$purple70: #5e2ea2;
+$purple80: #40167b;
+$purple90: #230051;
+$red10: #fff2ee;
+$red20: #ffdbd4;
+$red30: #ffada5;
+$red40: #fb7373;
+$red50: #ff4848;
+$red60: #db2d2d;
+$red70: #ca1e1e;
+$red80: #931919;
+$red90: #6d0a0e;
+$white-hex: #fff;
+$white-rgb: 255,255,255;
+$white: white;
+$yellow: #e8c92a;
+$info: #17a2b8;
+$success: #28a745;
+$warning: #ffc107;
+
+$theme-colors: (
+  danger: #dc3545,
+  dark: #343a40,
+  info: #17a2b8,
+  light: #f8f9fa,
+  success: #28a745,
+  warning: #ffc107,
+);

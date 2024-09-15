@@ -1,0 +1,70 @@
+/* MIXINS */
+@mixin btn-theme($back: black, $fore: white) {
+  $timing: .5s;
+
+  background: $back;
+  border-color: $fore;
+  color: $fore;
+  transition: background $timing, border-color $timing, color $timing;
+}
+
+@mixin btn-theme-gradient($back: $gradient-primary, $border: $color-secondary) {
+  $timing: .5s;
+  
+  background: $back;
+  border-color: $border;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  transition: background $timing, border-color $timing;
+}
+  
+@mixin icon($size: 4rem) {
+  @extend %flex-center;
+  height: $size;
+  width: $size;
+}
+  
+@mixin link($color: $navy70) {
+  $timing: 0.1s;
+  $underline-height: .1rem;
+
+  color: $color;
+  display: inline-block;
+  font-weight: bold;
+  padding-bottom: .3rem;
+  position: relative;
+  width: fit-content;
+
+  &::before {
+    background-color: $color;
+    bottom: 0;
+    content: "";
+    height: $underline-height;
+    left: 0;
+    position: absolute;
+    transition: width 0s;
+    width: 0;
+  }
+
+  &::after {
+    background-color: $color;
+    bottom: 0;
+    content: "";
+    height: $underline-height;
+    position: absolute;
+    right: 0;
+    transition: width $timing;
+    width: 0;
+  }
+
+  &:hover::before {
+    width: 100%;
+    transition: width $timing;
+  }
+
+  &:hover::after {
+    width: 100%;
+    transition-delay: $timing;
+  }
+}
