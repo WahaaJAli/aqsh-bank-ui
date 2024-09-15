@@ -1,0 +1,6 @@
+
+@each $icon in (whatsapp, facebook, youtube, instagram, twitter, whatsapp-thick, facebook-thick, youtube-thick, instagram-thick, twitter-thick) {
+  .icon-#{$icon} {
+    background: url("../svg/#{$icon}.svg") center no-repeat;
+  }
+}
