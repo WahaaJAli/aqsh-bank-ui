@@ -64,10 +64,15 @@ const Bank = () => {
 
 	return (
 	<>
-		<div className="mt-7 flex-row">
-			<BankAdd onAddItem={ createBank } error={ addError } ></BankAdd>
-			{  isLoading && <Prompt className="list-prompt">Please wait. Fetching Details...</Prompt> }
-			<BankList error={error} items={banks} isLoading={isLoading} onRemoveItem={deleteBank} onSelectItem={handleSelectBank} onUpdateItem={updateBank} ></BankList>
+		<div className="flex-row mt-7">
+			<div className=" flex-row justify-center width-30 mx-2-h">
+				<BankAdd onAddItem={ createBank } error={ addError } ></BankAdd>
+				{  isLoading && <Prompt className="list-prompt">Please wait. Fetching Details...</Prompt> }
+			</div>
+			<div className="flex-column justify-start width-60 mx-2-h">
+				<BankList error={error} items={banks} isLoading={isLoading} onRemoveItem={deleteBank} onSelectItem={handleSelectBank} onUpdateItem={updateBank} ></BankList>
+			</div>
+
 		</div>
 	</>
 	)

@@ -213,6 +213,12 @@ $text-sizes: (
   margin-left: $size;
 }
 
+.mx-2-h {
+  $size: 2.5rem;
+  margin-right: $size;
+  margin-left: $size;
+}
+
 .mx-auto {
   $size: auto;
   margin-right: $size;
@@ -322,14 +328,19 @@ $text-sizes: (
 }
 
 .px-5 {
-  $size: 5vw;
+  $size: 5rem;
   padding-left: $size;
   padding-right: $size;
 }
 
+
 /* WIDTHS */
 .width-20 {
   width: 20vw;
+}
+
+.width-30 {
+  width: 30vw;
 }
 
 .width-40 {
@@ -345,13 +356,13 @@ $text-sizes: (
 }
 
 .width-70 {
-  max-width: 70vw;
+  width: 70vw;
 }
 
 .width-80 {
-  max-width: 80vw;
+  width: 80vw;
 }
 
 .width-90 {
-  max-width: 90vw;
+  width: 90vw;
 }

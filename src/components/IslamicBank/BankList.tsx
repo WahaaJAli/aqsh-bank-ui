@@ -25,7 +25,10 @@ const BankList = ({ error, items, isLoading, onRemoveItem, onSelectItem, onUpdat
     return (
     <>
         <div className="flex-column">
-            <h2 className='list-heading'><span className='mr-2' >Banks</span><Icons.GiButterfly size={40} color='purple' /></h2>
+            <h2 className='list-heading'>
+                <span className='mr-2' >Banks</span>
+                <Icons.GiButterfly size={40} color='purple' />
+            </h2>
 
             { (items.length === 0 && !isLoading && !error) && (<Prompt className='list-promt'>No item(s) found!</Prompt>) }
             { error && <Error>{error}</Error> }
