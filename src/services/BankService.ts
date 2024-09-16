@@ -3,7 +3,7 @@ import Service from "./Service"
 export interface IBank {
     _id?: string
     bic: string
-    name: string
+    bankName: string
     nickName: string
     customersCount?: number
 }

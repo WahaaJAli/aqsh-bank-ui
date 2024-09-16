@@ -19,7 +19,7 @@ const BankAdd = ({ error, onAddItem }: BankAddProps): JSX.Element => {
   const onSubmit = (data: FieldValues): void => {
     onAddItem({
       bic: `${data.bic}PKKA`,
-      name: data.name.trim().split(' ').map((word: string) => `${word[0].toUpperCase()}${word.slice(1).toLowerCase()}`).join(' '),
+      bankName: data.bankName.trim().split(' ').map((word: string) => `${word[0].toUpperCase()}${word.slice(1).toLowerCase()}`).join(' '),
       nickName: data.bic.substring(0, 4)
     })
     reset()
@@ -35,10 +35,10 @@ const BankAdd = ({ error, onAddItem }: BankAddProps): JSX.Element => {
         </h2>
 
         <form className="form form-box" onSubmit={handleSubmit(onSubmit)} >
-          <label htmlFor="name">Bank Name</label>
+          <label htmlFor="bankName">Bank Name</label>
           <div className="form-input">
-            <input id="name" {...register('name')} type="text" placeholder="Enter bank name" />
-            {errors.name && <Error>{errors.name.message}</Error>}
+            <input id="bankName" {...register('bankName')} type="text" placeholder="Enter bank name" />
+            {errors.bankName && <Error>{errors.bankName.message}</Error>}
           </div>
 
           <label htmlFor="bic">Bank Identifier Code</label>

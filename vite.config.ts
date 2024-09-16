@@ -6,3 +6,6 @@ export default defineConfig({
   plugins: [react()],
   server: { port: 2321 }
 })
+
+// netstat -aon | findstr :2321
+// taskkill /F /PID <PID>

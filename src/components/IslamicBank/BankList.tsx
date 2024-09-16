@@ -19,7 +19,7 @@ const BankList = ({ error, items, isLoading, onRemoveItem, onSelectItem, onUpdat
 
     const onClick = (bank: IBank, index: number) => {
         setSelectedItem(index)
-        onSelectItem?.(bank.name)
+        onSelectItem?.(bank.bankName)
     }
 
     return (
@@ -27,7 +27,7 @@ const BankList = ({ error, items, isLoading, onRemoveItem, onSelectItem, onUpdat
         <div className="flex-column">
             <h2 className='list-heading'>
                 <span className='mr-2' >Banks</span>
-                <Icons.GiButterfly size={40} color='purple' />
+                <Icons.Butterfly size={40} color='purple' />
             </h2>
 
             { (items.length === 0 && !isLoading && !error) && (<Prompt className='list-promt'>No item(s) found!</Prompt>) }
@@ -48,9 +48,9 @@ const BankList = ({ error, items, isLoading, onRemoveItem, onSelectItem, onUpdat
                         {items.map((bank, index) =>
                             <tr key={bank._id}>
                                 <td className='center'>({++index})</td>
-                                <td className={selectedItem === index ? 'active': ''} onClick={() => onClick(bank, index)} >{bank.name}</td>
+                                <td className={selectedItem === index ? 'active': ''} onClick={() => onClick(bank, index)} >{bank.bankName}</td>
                                 <td>{bank.nickName}</td>
-                                <td className='center'><Button color='secondary' size='sm' onClick={ () => onUpdateItem(bank._id!, {...bank, name: `${bank.name} U`}) }>Update</Button></td>
+                                <td className='center'><Button color='secondary' size='sm' onClick={ () => onUpdateItem(bank._id!, {...bank, bankName: `${bank.bankName} U`}) }>Update</Button></td>
                                 <td className='center'><Button color='tertiary'  size='sm' onClick={ () => onRemoveItem(bank._id!) }>Delete</Button></td>
                             </tr>
                         )}
