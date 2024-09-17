@@ -1,11 +1,9 @@
 import Service from "./Service"
-
 export interface IBank {
-    _id?: string
+    readonly _id?: string
     bic: string
     bankName: string
-    nickName: string
-    customersCount?: number
+    nickname: string
 }
 
 export default Service('/banks')

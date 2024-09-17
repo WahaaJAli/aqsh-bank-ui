@@ -18,9 +18,9 @@ const BankAdd = ({ error, onAddItem }: BankAddProps): JSX.Element => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm<FormData>({ resolver: zodResolver(BankSchema) })
   const onSubmit = (data: FieldValues): void => {
     onAddItem({
-      bic: `${data.bic}PKKA`,
+      bic: `${data.bic.trim()}PKKA`,
       bankName: data.bankName.trim().split(' ').map((word: string) => `${word[0].toUpperCase()}${word.slice(1).toLowerCase()}`).join(' '),
-      nickName: data.bic.substring(0, 4)
+      nickname: data.bic.substring(0, 4)
     })
     reset()
   }

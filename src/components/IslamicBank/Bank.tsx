@@ -13,10 +13,10 @@ const Bank = () => {
 	const [ addError, setAddError ] = useState<string>()
 	const handleSelectBank = (item: string) => console.log(item)
 	
-	const createBank = ({ bic, bankName, nickName }: IBank): void => {
+	const createBank = ({ bic, bankName, nickname }: IBank): void => {
 		const originalBanks: IBank[] = [...banks]
 
-		const newBank: IBank = { bic, bankName, nickName }
+		const newBank: IBank = { bic, bankName, nickname }
 		setBank([newBank, ...banks])
 
 		BankService.create<IBank>(newBank)
@@ -30,7 +30,7 @@ const Bank = () => {
 			})
 	}
 
-	const updateBank = (id: string, {bic, bankName, nickName}: IBank): void => {
+	const updateBank = (id: string, {bic, bankName, nickname}: IBank): void => {
 		const originalBanks = [...banks]
 		setBank(banks.map(bank => bank._id === id ? {...bank, bankName} : bank))
 

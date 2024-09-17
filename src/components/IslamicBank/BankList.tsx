@@ -49,7 +49,7 @@ const BankList = ({ error, items, isLoading, onRemoveItem, onSelectItem, onUpdat
                             <tr key={bank._id}>
                                 <td className='center'>({++index})</td>
                                 <td className={selectedItem === index ? 'active': ''} onClick={() => onClick(bank, index)} >{bank.bankName}</td>
-                                <td>{bank.nickName}</td>
+                                <td>{bank.nickname}</td>
                                 <td className='center'><Button color='secondary' size='sm' onClick={ () => onUpdateItem(bank._id!, {...bank, bankName: `${bank.bankName} U`}) }>Update</Button></td>
                                 <td className='center'><Button color='tertiary'  size='sm' onClick={ () => onRemoveItem(bank._id!) }>Delete</Button></td>
                             </tr>
