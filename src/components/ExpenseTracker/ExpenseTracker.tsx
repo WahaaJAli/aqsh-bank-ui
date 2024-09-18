@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
-import Categories, { IExpense } from '../../services/ExpenseService'
 import ExpenseAdd from './ExpenseAdd'
 import ExpenseFilter from './ExpenseFilter'
 import ExpenseList from './ExpenseList'
+import IExpense, { Categories } from '../../services/ExpenseService'
 
-const ExpenseTracker = () => {
+const ExpenseTracker = (): JSX.Element => {
   useEffect(() => { 
     document.title = "Expense Tracker"
     return () => { document.title = '' }

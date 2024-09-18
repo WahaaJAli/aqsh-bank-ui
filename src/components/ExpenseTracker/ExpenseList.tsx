@@ -1,13 +1,13 @@
-import { IExpense } from "../../services/ExpenseService"
 import { useState } from "react"
 import Button from "../Button/Button"
+import IExpense from "../../services/ExpenseService"
 
 interface ExpenseListProps {
   expenses: IExpense[]
   onDeleteItem: (id: string) => void
 }
 
-const ExpenseList = ({ expenses, onDeleteItem }: ExpenseListProps) => {
+const ExpenseList = ({ expenses, onDeleteItem }: ExpenseListProps): JSX.Element => {
   const [selectedIndex, setSelectedIndex] = useState<string>('-1')
   const onClick = (id: string): void => setSelectedIndex(selectedIndex !== id ? id : '-1')
   const calcTotal = (): number => parseFloat(expenses.reduce((acc, expense) =>  acc + +expense.price, 0).toFixed(2))

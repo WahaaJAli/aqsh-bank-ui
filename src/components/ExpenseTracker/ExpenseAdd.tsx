@@ -1,10 +1,10 @@
 import { FieldValues, useForm } from 'react-hook-form'
+import { useEffect } from 'react'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import Button from '../Button/Button'
-import Categories, { IExpense } from '../../services/ExpenseService'
 import Error from '../Error/Error'
-import { useEffect } from 'react'
+import IExpense, { Categories } from '../../services/ExpenseService'
 
 const schema = z.object({
     description: z.string().min(3, {message: 'Description should be atleast 3 characters long.'}).max(50),
@@ -19,7 +19,7 @@ interface ExpenseAddProps {
     onAddItem: ({}: IExpense) => void
 }
 
-const ExpenseAdd = ({ onAddItem, categories }: ExpenseAddProps) => {
+const ExpenseAdd = ({ onAddItem, categories }: ExpenseAddProps): JSX.Element => {
     useEffect(() => setFocus('description'), [])
     type FormData = z.infer<typeof schema>
     
