@@ -18,7 +18,7 @@ const BankList = ({ error, items, isLoading, onRemoveItem, onSelectItem, onUpdat
     const [selectedItem, setSelectedItem] = useState<number>(-1)
 
     const onClick = (bank: IBank, index: number) => {
-        setSelectedItem(index)
+        setSelectedItem(selectedItem === index ? -1 : index)
         onSelectItem?.(bank.bankName)
     }
 
@@ -46,9 +46,9 @@ const BankList = ({ error, items, isLoading, onRemoveItem, onSelectItem, onUpdat
                     </thead>
                     <tbody>
                         {items.map((bank, index) =>
-                            <tr key={bank._id}>
-                                <td className='center'>({++index})</td>
-                                <td className={selectedItem === index ? 'active': ''} onClick={() => onClick(bank, index)} >{bank.bankName}</td>
+                            <tr key={bank._id} className={selectedItem === index ? 'active' : ''} onClick={() => onClick(bank, index)} >
+                                <td className='center'>({index})</td>
+                                <td>{bank.bankName}</td>
                                 <td>{bank.nickname}</td>
                                 <td className='center'><Button color='secondary' size='sm' onClick={ () => onUpdateItem(bank._id!, {...bank, bankName: `${bank.bankName} U`}) }>Update</Button></td>
                                 <td className='center'><Button color='tertiary'  size='sm' onClick={ () => onRemoveItem(bank._id!) }>Delete</Button></td>
