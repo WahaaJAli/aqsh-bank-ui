@@ -7,7 +7,7 @@ import Footer from "../Footer/Footer"
 import Practice from "../Practice/Practice"
 
 
-const Home = (): JSX.Element => {
+const Tnsa = (): JSX.Element => {
 
     return (
         <>
@@ -161,4 +161,4 @@ const Home = (): JSX.Element => {
     )
 }
 
-export default Home
+export default Tnsa

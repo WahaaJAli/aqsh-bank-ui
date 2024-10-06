@@ -26,33 +26,35 @@
 }
   
 @mixin link($color: $navy70) {
+  $gap: 0.2rem;
   $timing: 0.1s;
   $underline-height: .1rem;
 
   color: $color;
   display: inline-block;
   font-weight: bold;
-  padding-bottom: .3rem;
+  padding-bottom: $gap;
+  margin-top: $gap;
   position: relative;
   width: fit-content;
 
   &::before {
+    content: "";
+    position: absolute;
     background-color: $color;
     bottom: 0;
-    content: "";
     height: $underline-height;
     left: 0;
-    position: absolute;
     transition: width 0s;
     width: 0;
   }
 
   &::after {
+    content: "";
+    position: absolute;
     background-color: $color;
     bottom: 0;
-    content: "";
     height: $underline-height;
-    position: absolute;
     right: 0;
     transition: width $timing;
     width: 0;

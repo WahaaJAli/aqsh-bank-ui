@@ -19,11 +19,11 @@ const Footer = (): JSX.Element => {
                 </div>
                 
                 <div className="flex-row">
-                    <LinkIcon className="mr-2" href="https://Google.com" icon="icon-youtube" />
-                    <LinkIcon className="mr-2" href="https://Google.com" icon="icon-whatsapp" />
-                    <LinkIcon className="mr-2" href="https://Google.com" icon="icon-facebook" />
-                    <LinkIcon className="mr-2" href="https://Google.com" icon="icon-twitter" />
-                    <LinkIcon href="https://Google.com" icon="icon-instagram" />
+                    <LinkIcon className="mr-2" href="https://Google.com" icon="youtube" />
+                    <LinkIcon className="mr-2" href="https://Google.com" icon="whatsapp" />
+                    <LinkIcon className="mr-2" href="https://Google.com" icon="facebook" />
+                    <LinkIcon className="mr-2" href="https://Google.com" icon="twitter" />
+                    <LinkIcon href="https://Google.com" icon="instagram" />
                 </div>
             </div>
         </div>

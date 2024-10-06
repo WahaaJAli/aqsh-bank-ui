@@ -4,17 +4,23 @@ $font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
 
 /* FILTERS */
 $filter-black: brightness(0);
-$filter-white: brightness(0) invert(1);
-$filter-red: invert(16%) sepia(87%) saturate(6986%) hue-rotate(2deg) brightness(98%) contrast(118%);;
+$filter-navy: invert(100%) sepia(15%) saturate(6528%) hue-rotate(177deg) brightness(101%) contrast(106%);
 $filter-primary: invert(13%) sepia(99%) saturate(3221%) hue-rotate(185deg) brightness(93%) contrast(102%);
+$filter-red: invert(16%) sepia(87%) saturate(6986%) hue-rotate(2deg) brightness(98%) contrast(118%);;
 $filter-secondary: invert(35%) sepia(49%) saturate(5856%) hue-rotate(172deg) brightness(91%) contrast(84%);
+$filter-teal: invert(18%) sepia(36%) saturate(1710%) hue-rotate(171deg) brightness(97%) contrast(92%);
+$filter-transparent: opacity(0.5);
+$filter-white: brightness(0) invert(1);
 
 /* COLOR PALETTE */
 $color-primary: #004F76;
-$color-secondary: #14829F;
+// $color-secondary: #14829F;
+$color-secondary: #bea4ff;
 $color-accent-primary: #D8E3EC;
 $color-accent-secondary: #9DBED1;
+$color-muted: #f4f4f9;
 $color-primary-bright: #04e6fc;
+$color-teal: #113f60;
 
 $color-heading: #1b0760;
 $color-body: #1b0760;
@@ -105,6 +111,7 @@ $orange-primary-hex: #ff8f4d;
 $orange-primary-rgb: 255,143,77;
 $orange-secondary-hex: #ffa26b;
 $orange-secondary-rgb: 255,162,107;
+$orange00: #e3b9a7;
 $orange10: #fefae9;
 $orange20: #fdf0c5;
 $orange30: #ffde9c;
@@ -117,14 +124,16 @@ $orange90: #6c1f10;
 $pink-primary: #ef4b78;
 $pink-secondary: #dd4561;
 $pink-tertiary: #fde4eb;
-$purple10: #f6f0fd;
-$purple20: #eadefc;
-$purple30: #d4bdf7;
-$purple40: #c39af8;
+$purple10: #eadefc;
+$purple20: #d4bdf7;
+$purple30: #c39af8;
+$purple40: #7c6fa3;
+$purple45: #4e3942a8;
 $purple50: #9c6ade;
 $purple60: #7a41c5;
 $purple70: #5e2ea2;
 $purple80: #40167b;
+$purple85: #3b364c;
 $purple90: #230051;
 $red10: #fff2ee;
 $red20: #ffdbd4;

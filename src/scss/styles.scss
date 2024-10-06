@@ -1,18 +1,19 @@
 @use "sass:math";
 @use "sass:map";
 
-// @import '../components/Footer/Footer.scss';
+@import '../components/Registration/Registration.scss';
 @import 'mixin';
 @import 'function';
 @import 'keyframe';
 @import 'variable';
 @import 'typography';
+@import 'icons';
 
 
 /* Svgs */
 $link: url("../svg/link.svg");
 
-@each $icon in (link, ns, close, close-lg, download, tnsa, tnsa-text, vision, cloud, link-thick, star, star-half) {
+@each $icon in $Icons {
   .icon-#{$icon} {
     background: url("../svg/#{$icon}.svg") center no-repeat;
   }
@@ -25,12 +26,6 @@ $link: url("../svg/link.svg");
 }
 
 /* COLORS */
-@each $icon in (clock, media, settings, world, team, verified) {
-  .icon-#{$icon} {
-    background: url("/src/svg/#{$icon}.svg") center no-repeat;
-  }
-}
-
 $colors: (
   "primary":   ( color: #004F76, filter: invert(21%) sepia(88%) saturate(1242%) hue-rotate(171deg) brightness(90%)  contrast(105%) ),
   "secondary": ( color: #14829F, filter: invert(34%) sepia(50%) saturate(2370%) hue-rotate(166deg) brightness(90%)  contrast(84%)  ),
@@ -105,18 +100,21 @@ $colors: (
   }
 
   label {
+    align-self: flex-start;
     color: $purple80;
     font-size: 2.5rem;
     font-weight: bold;
-    align-self: flex-start;
     margin-bottom: 1rem;
   }
 
   $width: 25vw;
   input, select {
+    $color: $purple40;
+
+    background-color: $purple85;
     border-radius: .3rem;
-    border: 1px solid $purple50;
-    color: $color-heading;
+    border: none;
+    color: $navy10;
     font-size: 1.55rem;
     outline: 0;
     padding: 1rem;
@@ -124,16 +122,21 @@ $colors: (
     width: $width;
 
     &:hover, &:focus {
-      box-shadow: 0 0 10px $purple30;
+      outline: 1.5px solid $color;
+      box-shadow: 0 0 1rem $color;
     }
 
     &::placeholder {
-      color: $purple30;
+      color: $color;
     }
   }
 
   p.error-prompt {
-    width: $width;
+    $size: 5px;
+
+    margin-top: -$size;
+    margin-bottom: $size;
+    width: auto;
   }
 
   .input {
@@ -154,7 +157,7 @@ $colors: (
 /* BUTTONS */
 %btn {
   align-items: center;
-  border-radius: 4rem;
+  border-radius: 5px;
   border: solid 0.2rem;
   cursor: pointer;
   display: inline-flex;
@@ -172,7 +175,7 @@ $colors: (
 
   &--primary {
     @extend %btn;
-    @include btn-theme($gradient-primary, white);
+    @include btn-theme($gradient-primary, $white);
 
     &:hover {
       @include btn-theme-gradient($gradient-primary, $color-secondary);
@@ -181,19 +184,19 @@ $colors: (
   
   &--secondary {
     @extend %btn;
-    @include btn-theme($color-secondary, white);
+    @include btn-theme($color-secondary, $white);
 
     &:hover {
-      @include btn-theme(white, $color-secondary);
+      @include btn-theme($white, $color-secondary);
     }
   }
 
   &--tertiary {
     @extend %btn;
-    @include btn-theme(black, white);
+    @include btn-theme($purple85, $white);
 
     &:hover {
-      @include btn-theme(white, black);
+      @include btn-theme($navy70, $navy10);
     }
   }
   
@@ -227,6 +230,58 @@ $colors: (
 }
 
 
+.btn-icon {
+
+  &--input {
+    filter: $filter-navy;
+
+    &:hover {
+      transform: scale(1.1) translateY(20%);
+    }
+
+    &.animated {
+      animation: blipped .25s linear;
+    }
+  }
+  
+  &--primary, &--input {
+    transition: transform 0.25s;
+
+    &-sm {
+      $size: 1.2rem;
+      height: $size;
+      transform: translateY(20%);
+      width: $size;
+    }
+
+    &:disabled {
+      cursor: not-allowed; 
+      opacity: 0.7;
+      pointer-events: none;
+    }
+  }
+}
+
+.input__container {
+  position: relative;
+
+  .clear-input {
+    border: none;
+    position: absolute;
+    right: 1.2rem;
+  }
+
+  .toggle-password {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 17px;
+    position: absolute;
+    right: 3rem;
+    transform: translateY(-10%);
+  }
+}
+
 /* LINKS */
 a {
   text-decoration: none;
@@ -238,55 +293,64 @@ a {
   }
   
   &.link-text {
-    @include link($color-body-light);
+    @include link($color-secondary);
   }
 }
 
 /* ICON LINKS */
 .animation-wave {
   @extend %flex-center;
+  $color: $color-teal;
   $size: 6rem;
   
-  position: relative;
-  width: $size;
   height: $size;
+  position: relative;
   transition: color .4s ease;
+  width: $size;
 
   &:hover .icon {
-    filter: $filter-primary;
+    filter: $filter-teal;
   }
 
   &:before {
+    $delay: 0;
+    $wave: 1px;
+
     content: "";
     position: absolute;
     border-radius: 50%;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    box-shadow: 0 0 0 $color-primary;
+    bottom: $wave;
+    box-shadow: 0 0 0 $color;
+    left: $wave;
     opacity: 0.7;
-    transition: transform 0s ease, opacity 0s ease, box-shadow 0s ease;
+    right: $wave;
+    top: $wave;
+    transition: transform $delay ease, opacity $delay ease, box-shadow $delay ease;
   }
   
   &:after {
+    $delay: 0.5s;
+    $ring: 1px;
+
     content: "";
     position: absolute;
     border-radius: 50%;
-    left: 2px;
-    top: 2px;
-    bottom: 2px;
-    right: 2px;
-    border: 1.5px solid $color-primary;
+    border: 1.5px solid $color;
+    bottom: $ring;
+    left: $ring;
     opacity: 0;
-    transition: transform .5s ease-in, opacity .5s ease-in;
+    right: $ring;
+    top: $ring;
+    transition: transform $delay ease-in, opacity $delay ease-in;
   }
   
   &:hover:before {
-    box-shadow: 0 0 20px $color-primary;
+    $delay: 0.7s;
+
+    box-shadow: 0 0 2rem $color;
     opacity: 0;
     transform: scale(1.6);
-    transition: transform .7s ease-out, opacity .7s ease-out, box-shadow .7s ease;
+    transition: transform $delay ease-out, opacity $delay ease-out, box-shadow $delay ease;
   }
   
   &:hover:after {
@@ -300,13 +364,13 @@ a {
 .icon-container {
   $size: 5.5rem;
 
+  align-items: center;
   background: $color-accent-primary;
-  height: $size;
-  width: $size;
   border-radius: $size * 0.5;
   display: inline-flex;
+  height: $size;
   justify-content: center;
-  align-items: center;
+  width: $size;
 }
 
 .icon {
@@ -314,7 +378,7 @@ a {
   
   &--primary {
     @include icon(5rem);
-    filter: $filter-black;
+    filter: $filter-transparent;
   }
   
   &-sm {
@@ -325,28 +389,40 @@ a {
 
 /* BADGES */
 %badge {
+  $timing: 0.5s;
+
   align-items: center;
   border-radius: 4rem;
-  color: white;
+  color: $white;
   display: inline-flex;
-  font-size: 2rem;
+  font-size: 1.4rem;
   justify-content: center;
-  min-height: 4rem;
-  min-width: 10rem;
-  padding: 1rem 2rem;
+  padding: .6rem 2rem;
   text-align: center;
-  transition: background-color .5s;
+  transition: background-color $timing, transform $timing;
 }
 
-.badge--primary {
-  @extend %badge;
-  background-color: $color-primary;
-    
-}
+.badge {
+  &--primary {
+    @extend %badge;
+    background-color: $color-primary;
+  }
+  
+  &--tertiary {
+    @extend %badge;
+    color: $navy10;
+    background-color: $purple45;
 
-.badge--warning {
-  @extend %badge;
-  background-color: map-get($map: $theme-colors, $key: warning);
+    &:hover {
+      background-color: $color-teal;
+      transform: scale(1.1);
+    }
+  }
+  
+  &--warning {
+    @extend %badge;
+    background-color: map-get($map: $theme-colors, $key: warning);
+  }
 }
 
 /* BANNERS */
@@ -549,7 +625,7 @@ ul {
   color: #212529;
 
   th, td, tr {
-    border-top: 1px solid white;
+    border-top: 1px solid $white;
     cursor: pointer;
     padding: 0.75rem;
     vertical-align: middle;
@@ -748,7 +824,7 @@ ul {
 .intro-video {
   width: 44vw;
   transform: translateY(-50vh);
-  border: solid 3px white;
+  border: solid 3px $white;
   position: absolute;
 }
 
