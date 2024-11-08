@@ -11,7 +11,7 @@ interface ButtonIconProps {
     onClick: () => void
 }
 
-const ButtonIcon = ({className, icon='close-lg', size='sm', skin='input', onClick}: ButtonIconProps): JSX.Element => {
+const ButtonIcon = ({className, icon='close', size='sm', skin='input', onClick}: ButtonIconProps): JSX.Element => {
 
     return (
         <button className={`btn-icon--${skin} btn-icon--${skin}-${size} icon-${icon} ${className} animated`}

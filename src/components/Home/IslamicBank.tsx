@@ -1,18 +1,12 @@
-import IRegistration from "../../services/ResgistrationService"
+import IRegistration from "../../services/RegistrationService"
 import Bank from "../IslamicBank/Bank"
 import { BankHeader } from "../IslamicBank/BankHeader"
 import Registration from "../Registration/Registration"
 
 const IslamicBank = (): JSX.Element => {
-    const addUser = (): void => {
-        setTimeout(() => {
-            console.log("User Registered!")
-        }, 2000);
-    }
-
     return (
         <>
-            <Registration onAddItem={addUser} />
+            <Registration />
 
             {/* <BankHeader></BankHeader>
 
