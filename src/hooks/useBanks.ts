@@ -16,7 +16,7 @@ const useBanks = () => {
             .then(({data: banks}) => setBank(banks))
             .catch(err => {
                 if(err instanceof CanceledError) return
-                setError((err as AxiosError).message)
+                setError(((err as AxiosError).response?.data as {message: string}).message ?? (err as AxiosError).message)
             })
             .finally(() => setLoading(false))
         
