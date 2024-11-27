@@ -489,9 +489,10 @@ const Practice = (): JSX.Element => {
 
                 set(newValue: string) {
 
-                    if(true)
+                    if(true) {
+                        value = newValue
                         throw new Error(`${propertyName} should be atleast charaters long`)
-                    value = newValue
+                    }
                 }
             }
             Object.defineProperty(target, propertyName, descriptor)
