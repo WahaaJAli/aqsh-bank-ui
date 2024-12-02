@@ -1,4 +1,6 @@
 import axios, { CanceledError, AxiosError } from 'axios'
 
-export default axios.create({ baseURL: 'http://localhost:2123/' })
+const API_URL = import.meta.env.VITE_API_URL
+
+export default axios.create({ baseURL: API_URL })
 export { CanceledError, AxiosError }
