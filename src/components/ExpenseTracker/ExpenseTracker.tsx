@@ -23,8 +23,8 @@ const ExpenseTracker = (): JSX.Element => {
   const handleAdd = (newExpense: IExpense): void => {
     setExpenses([...expenses, newExpense])
 
-    const isNewCategory: boolean = expenses.find(expense => expense.category === newExpense.category) ? true : false
-    if (!isNewCategory) setCategories([...categories, newExpense.category])
+    const isNewCategory: boolean = expenses.find(expense => expense.category === newExpense.category) ? false : true
+    if (isNewCategory) setCategories([...categories, newExpense.category])
   }
   const handleDelete = (id: string): void => setExpenses(expenses.filter((expense: IExpense) => expense._id !== id))
   const onSelectCategory = (category: string): void => setSelectedCategory(category)

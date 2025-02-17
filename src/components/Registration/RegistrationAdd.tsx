@@ -14,7 +14,7 @@ const schema = z.object({
   lastName: z.string().min(2).max(40).trim(),
   email: emailSchema,
   password: passwordSchema,
-  agreement: z.boolean().refine(v => v == true, { message: 'Please read and mark terms and conditions before proceeding' })
+  agreement: z.boolean().refine(v => v == true, { message: 'Please read and accept terms and conditions before proceeding' })
 })
 
 interface RegistrationProps {

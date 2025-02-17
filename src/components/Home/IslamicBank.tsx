@@ -1,3 +1,4 @@
+import ExpenseTracker from "../ExpenseTracker/ExpenseTracker"
 import Bank from "../IslamicBank/Bank"
 import { BankHeader } from "../IslamicBank/BankHeader"
 import Registration from "../Registration/Registration"
@@ -13,6 +14,8 @@ const IslamicBank = (): JSX.Element => {
                 <h3 className="text-center intro-text">Welcome to The Premire Islamic Banking System</h3>
                 <Bank></Bank>
             </div>
+
+            <ExpenseTracker/>
 
         </>
     )

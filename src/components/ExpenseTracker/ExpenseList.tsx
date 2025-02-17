@@ -41,8 +41,6 @@ const ExpenseList = ({ expenses, onDeleteItem }: ExpenseListProps): JSX.Element 
             <tr>
               <th>Total</th>
               <th>PKR {calcTotal()}/-</th>
-              <th></th>
-              <th></th>
             </tr>
           </tfoot>
         </table>
