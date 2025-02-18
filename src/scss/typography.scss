@@ -1,4 +1,5 @@
-@import 'variable';
+@use "sass:map";
+@use 'variable' as *;
 
 /* TYPOGRAPHY */
 
@@ -75,8 +76,8 @@ $text-sizes: (
 
 @each $size, $values in $text-sizes {
   .text-#{$size} {
-    font-size: map-get($values, font-size);
-    line-height: map-get($values, line-height);
+    font-size: map.get($values, font-size);
+    line-height: map.get($values, line-height);
   }
 }
 
@@ -114,11 +115,11 @@ $text-sizes: (
 
 .error-prompt {
   @extend %prompt;
-  color: map-get($theme-colors, danger);
+  color: map.get($theme-colors, danger);
   padding: 0;
 
   &::selection {
-    background-color: map-get($theme-colors, danger);
+    background-color: map.get($theme-colors, danger);
     color: white;
   }
 

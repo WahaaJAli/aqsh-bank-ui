@@ -1,13 +1,13 @@
-@use "sass:math";
+@use "sass:color";
 @use "sass:map";
+@use "sass:math";
 
-@import '../components/Registration/Registration.scss';
-@import 'mixin';
-@import 'function';
-@import 'keyframe';
-@import 'variable';
-@import 'typography';
-@import 'icons';
+@use 'mixin' as *;
+@use 'function' as *;
+@use 'keyframe' as *;
+@use 'variable' as *;
+@use 'typography' as *;
+@use 'icons' as *;
 
 
 /* Svgs */
@@ -40,29 +40,29 @@ $colors: (
 @each $color, $values in $colors {
 
   .bg-#{$color} {
-    background: mix(#fff, map-get($values, color), 93%)
+    background: color.mix(#fff, map.get($values, color), 93%)
   }
   
   .shine-#{$color} {
 
     ::selection {
-      background: rgba(map-get($values, color), 0.85);
+      background: rgba(map.get($values, color), 0.85);
       color: $white;
       -webkit-text-fill-color: $white;
     }
   }
 
   .text-#{$color} {
-    color: map-get($values, color);
+    color: map.get($values, color);
   }
 
   .border-#{$color} {
-    border: 1.5px solid map-get($values, color);
-    box-shadow: 0 0 2rem rgba(map-get($values, color), .4);
+    border: 1.5px solid map.get($values, color);
+    box-shadow: 0 0 2rem rgba(map.get($values, color), .4);
   }
 
   .filter-#{$color} {
-    filter: map-get($values, filter);
+    filter: map.get($values, filter);
   }
 }
 
@@ -423,7 +423,7 @@ a {
   
   &--warning {
     @extend %badge;
-    background-color: map-get($map: $theme-colors, $key: warning);
+    background-color: map.get($map: $theme-colors, $key: warning);
   }
 }
 
