@@ -5,9 +5,9 @@ import RegistrationAdd from './RegistrationAdd'
 const Registration = () => {
 	const [ addError, setAddError ] = useState<string>()
 
-  const createUser = ({username, email, password}: IUser): void => {
+  const createUser = ({username, email, password, isAdmin}: IUser): void => {
     type UserPayload = Omit<IUser, '_id'>
-    const user: UserPayload = {username, email, password}
+    const user: UserPayload = {username, email, password, isAdmin}
 
     RegistrationService.create<UserPayload>(user)
       .then(({data: newUser}) => setAddError(''))

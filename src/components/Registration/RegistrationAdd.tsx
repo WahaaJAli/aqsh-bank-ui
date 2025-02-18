@@ -35,7 +35,7 @@ const RegistrationAdd = ({ addError, onAddItem }: RegistrationProps): JSX.Elemen
   
   const clearInput = (name: keyof FormData) => setValue(name, '')
   const onHandleSubmit = ({ firstName, lastName, email, password }: FieldValues) => {
-    const registration: IUser = { _id: uId(), username: `${firstName} ${lastName}`, email, password }
+    const registration: IUser = { _id: uId(), username: `${firstName} ${lastName}`, email, password, isAdmin: false }
     onAddItem(registration)
     reset()
   }

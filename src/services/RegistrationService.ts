@@ -5,6 +5,7 @@ export interface IUser {
   username: string
   email: string
   password: string
+  isAdmin: boolean
 }
 
 export default Service('/users')
