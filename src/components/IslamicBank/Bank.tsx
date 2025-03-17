@@ -10,7 +10,7 @@ import Button from "../Button/Button"
 const Bank = () => {
 	useEffect(() => { document.title = "Premier Islamic Banking" }, [])
 
-	const { data: banks, error, isLoading, fetchNextPage, isFetchingNextPage, hasNextPage } = useBanks()
+	const { data: banks, error, isLoading, fetchNextPage, isFetchingNextPage, hasNextPage } = useBanks(10)
 	const [ addError, setAddError ] = useState<string>()
 	const handleSelectBank = (item: string) => console.log(item)
 	
