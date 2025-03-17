@@ -10,9 +10,7 @@ import Button from "../Button/Button"
 const Bank = () => {
 	useEffect(() => { document.title = "Premier Islamic Banking" }, [])
 
-  const pageSize = 10
-  const [page, setPage] = useState(1)
-	const { data: banks, totalPages, error, isLoading } = useBanks({ page, pageSize })
+	const { data: banks, error, isLoading, fetchNextPage, isFetchingNextPage, hasNextPage } = useBanks()
 	const [ addError, setAddError ] = useState<string>()
 	const handleSelectBank = (item: string) => console.log(item)
 	
@@ -69,11 +67,12 @@ const Bank = () => {
 				{  isLoading && <Prompt className="list-prompt">Please wait. Fetching Details...</Prompt> }
 			</div>
 			<div className="flex-column justify-start width-60 mx-2-h">
-				<BankList items={banks} isLoading={isLoading} onSelectItem={handleSelectBank} ></BankList>
-        <div className="action-btn__container">
-          <Button color="secondary" size="md" onClick={() => setPage(page - 1)} disabled={page === 1}>Previous</Button>
-          <Button color="secondary" size="md" onClick={() => setPage(page + 1)} disabled={page === totalPages}>Next</Button>
-        </div>
+				<BankList items={banks?.pages.flatMap(page => page.banks) || []} isLoading={isLoading} onSelectItem={handleSelectBank} ></BankList>
+        { hasNextPage && 
+          <div className="action-btn__container">
+            <Button color="secondary" size="md" onClick={() => fetchNextPage()}>{isFetchingNextPage ? 'Loading...' : 'Load More'}</Button>
+          </div>
+        }
 			</div>
 
 		</div>
