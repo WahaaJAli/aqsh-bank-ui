@@ -792,7 +792,7 @@ ul {
 }
 
 .bank-intro-section {
-  padding-top: 5rem;
+  padding-top: 2rem;
   position: relative;
 
   &::before {
@@ -933,6 +933,13 @@ $size: 70vw;
       width: 30vw;
     }
   }
+}
+
+.action-btn__container {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  margin-top: 2rem;
 }
 
 /* BANNER */

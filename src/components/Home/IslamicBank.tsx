@@ -6,7 +6,7 @@ import Registration from "../Registration/Registration"
 const IslamicBank = (): JSX.Element => {
     return (
         <>
-            <Registration />
+            {/* <Registration /> */}
 
             <BankHeader></BankHeader>
 
@@ -15,7 +15,7 @@ const IslamicBank = (): JSX.Element => {
                 <Bank></Bank>
             </div>
 
-            <ExpenseTracker/>
+            {/* <ExpenseTracker/> */}
 
         </>
     )

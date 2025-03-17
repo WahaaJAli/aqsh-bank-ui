@@ -1,29 +1,29 @@
-import { AxiosError, CanceledError } from 'axios'
-import { useEffect, useState } from 'react'
-import BankService, { IBank } from '../services/BankService'
+import { IBank } from '../services/BankService'
+import { useQuery } from '@tanstack/react-query'
+import axios from 'axios'
 
-const useBanks = () => {
-    useEffect(() => { getBanks() }, [])
+interface BankQuery { 
+  page: number
+  pageSize: number
+}
 
-    const [banks, setBank] = useState<IBank[]>([])
-    const [error, setError] = useState<string>('')
-    const [isLoading, setLoading] = useState<boolean>(true)
+const useBanks = ({ page, pageSize }: BankQuery) => {
+  const getBanks = async () => {
+    const response = await axios.get<{ banks: IBank[], totalPages: number }>(
+      'http://localhost:2123/banks', 
+      { params: { page, pageSize } }
+    )
+    return response.data
+  }
+  
+  const { data, error, isLoading } = useQuery({
+    queryKey: ['banks', { page, pageSize }],
+    queryFn: () => getBanks(), 
+    staleTime: 10 * 1000,
+    keepPreviousData: true
+  })
 
-    const getBanks = async () => {
-        const { request, cancel } = BankService.get<IBank>()
-
-        request
-            .then(({data: banks}) => setBank(banks))
-            .catch(err => {
-                if(err instanceof CanceledError) return
-                setError(((err as AxiosError).response?.data as {message: string})?.message ?? (err as AxiosError)?.message)
-            })
-            .finally(() => setLoading(false))
-        
-        return () => cancel()
-    }
-
-    return { banks, error, isLoading, setBank, setError, setLoading }
+  return { data: data?.banks || [], totalPages: data?.totalPages , error, isLoading }
 }
 
 export default useBanks
