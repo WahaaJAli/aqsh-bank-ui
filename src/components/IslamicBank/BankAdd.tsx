@@ -9,19 +9,22 @@ import Icons from "../../icons/Icons"
 
 interface BankAddProps {
   error?: string
-  onAddItem: ({ }: IBank) => void
+  onAddItem: (newBank: IBank) => void
 }
 
 type FormData = z.infer<typeof BankSchema>
 
 const BankAdd = ({ error, onAddItem }: BankAddProps): JSX.Element => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm<FormData>({ resolver: zodResolver(BankSchema) })
+  
   const onSubmit = (data: FieldValues): void => {
-    onAddItem({
+    const newBank: IBank = {
       bic: `${data.bic.trim()}PKKA`,
       bankName: data.bankName.trim().split(' ').map((word: string) => `${word[0].toUpperCase()}${word.slice(1).toLowerCase()}`).join(' '),
       nickname: data.bic.substring(0, 4)
-    })
+    }
+    
+    onAddItem(newBank)
     reset()
   }
 

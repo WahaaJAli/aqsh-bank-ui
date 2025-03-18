@@ -21,7 +21,7 @@ const config = {
   }
 }
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient(config)
 
 createRoot(document.getElementById('root')!).render(
   <QueryClientProvider client={queryClient}>
