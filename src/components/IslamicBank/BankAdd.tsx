@@ -9,7 +9,7 @@ import Error from "../Error/Error"
 import Icons from "../../icons/Icons"
 
 interface BankAddProps {
-  error?: string
+  error?: string | undefined
   onAddItem: (newBank: IBank) => void
 }
 
