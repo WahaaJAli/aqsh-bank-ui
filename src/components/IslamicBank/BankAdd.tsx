@@ -1,3 +1,4 @@
+import { capitalize } from "../../utils/Capitalize"
 import { FieldValues, useForm } from "react-hook-form"
 import { IBank } from "../../services/BankService"
 import { z } from "zod"
@@ -17,13 +18,13 @@ type FormData = z.infer<typeof BankSchema>
 const BankAdd = ({ error, onAddItem }: BankAddProps): JSX.Element => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm<FormData>({ resolver: zodResolver(BankSchema) })
   
-  const onSubmit = (data: FieldValues): void => {
+  const onSubmit = ({bic, bankName}: FieldValues): void => {
     const newBank: IBank = {
-      bic: `${data.bic.trim()}PKKA`,
-      bankName: data.bankName.trim().split(' ').map((word: string) => `${word[0].toUpperCase()}${word.slice(1).toLowerCase()}`).join(' '),
-      nickname: data.bic.substring(0, 4)
+      bic: `${bic.trim()}PKKA`,
+      bankName: capitalize(bankName),
+      nickname: bic.substring(0, 4)
     }
-    
+
     onAddItem(newBank)
     reset()
   }
