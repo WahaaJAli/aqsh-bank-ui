@@ -2,24 +2,23 @@ import { InfiniteData, useMutation, useQueryClient } from "@tanstack/react-query
 import BankService, { FetchBankResponse, IBank } from "../services/BankService"
 import { CACHE_KEY_BANKS } from "./Contants"
 
-type InfiniteBankData = InfiniteData<FetchBankResponse> | undefined
+type InfiniteBankData = InfiniteData<FetchBankResponse>
 
 const useAddBanks = () => {
   const queryClient = useQueryClient()
 
   return useMutation<IBank, Error, IBank, InfiniteBankData>({
-    mutationFn: async (newBank: IBank) => (await BankService.create<IBank>(newBank)).data,
+    mutationFn: BankService.create,
     
     onMutate: async (newBank: IBank) => {
       await queryClient.cancelQueries({ queryKey: CACHE_KEY_BANKS })
-      const previousBanks = queryClient.getQueryData<InfiniteData<FetchBankResponse>>(CACHE_KEY_BANKS)
+      
+      const previousBanks = queryClient.getQueryData<InfiniteBankData>(CACHE_KEY_BANKS)
+      if (!previousBanks) return previousBanks
+      
+      queryClient.setQueryData(CACHE_KEY_BANKS, {...previousBanks, 
+        pages: previousBanks.pages.map((page, i) => i === 0 ? { ...page, banks: [newBank, ...page.banks] } : page)})
 
-      const getPages = (oldBanks: InfiniteData<FetchBankResponse>) => 
-        oldBanks.pages.map((page, i) => i === 0 ? { ...page, banks: [newBank, ...page.banks] } : page)
-
-      queryClient.setQueryData(CACHE_KEY_BANKS, (oldBanks: InfiniteBankData) =>
-        oldBanks ? { ...oldBanks, pages: getPages(oldBanks) } : oldBanks
-      )
       return previousBanks
     },
 

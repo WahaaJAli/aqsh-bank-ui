@@ -15,4 +15,4 @@ export interface IBank {
   nickname: string
 }
 
-export default Service('/banks')
+export default new Service<IBank>('/banks')
